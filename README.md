@@ -3,6 +3,8 @@ docker-systemd:ubuntu15.04
 
 This is a Ubuntu 15.04 Baseimage Running SystemD Init System inside a container it can idealy be applyed over any other ubuntu or fedora img but on fedora the entrypoint is /sbin/init
 
+# Starting a shell with systemd
+
          $ docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd   systemd.unit=emergency.service
          
          systemd 218 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT -GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID -ELFUTILS +KMOD -IDN)
@@ -26,7 +28,7 @@ need CAP_SYS_ADMIN capability you can add --privileged true or as in the example
 
 Looking at what I had done to prevent this in virt-sandbox-service, I saw that I needed to remove unit file links from the /lib/systemd/system/*wants/ and  /etc/systemd/system/*wants/ directories within a systemd based docker container.  Removing these links got me to a systemd container image that would only run systemd and journald.
 
-
+# starting systemd init 
 
          $ docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro dockerimages/docker-systemd " "
          systemd 218 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT -GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID -ELFUTILS +KMOD -IDN)
