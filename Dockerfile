@@ -21,5 +21,6 @@ rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
 rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
+ENV init /lib/systemd/systemd
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
