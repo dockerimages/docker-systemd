@@ -21,6 +21,7 @@ rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
 rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
+RUN systemctl disable systemd-update-utmp.service systemd-update-utmp-runlevel.service
 ENV init /lib/systemd/systemd
 VOLUME [ "/sys/fs/cgroup" ]
 # docker run -it --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd systemd.unit=emergency.service
