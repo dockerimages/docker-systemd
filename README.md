@@ -1,7 +1,7 @@
-systemd
+docker-systemd:ubuntu15.04
 =======
 
-This is a Ubuntu Baseimage Running SystemD Init System inside a container it can idealy be applyed over any other ubuntu or fedora img
+This is a Ubuntu 15.04 Baseimage Running SystemD Init System inside a container it can idealy be applyed over any other ubuntu or fedora img but on fedora the entrypoint is /sbin/init
 
          $ docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd   systemd.unit=emergency.service
          
