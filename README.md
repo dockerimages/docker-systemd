@@ -39,7 +39,7 @@ EOF
 
 or simply directly :D
 `````
-docker run –privileged -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 dockerimages/docker-nginx-systemd
+docker run --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 dockerimages/docker-nginx-systemd
 `````
 
 thats it have fun with systemd
