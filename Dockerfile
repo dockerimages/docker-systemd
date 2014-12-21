@@ -27,7 +27,9 @@ rm -f /lib/systemd/system/systemd-update-utmp*;
 # rm -f /lib/systemd/system/default.target
 RUN systemctl set-default multi-user.target
 ENV init /lib/systemd/systemd
+COPY init /sbin/init
+RUN chmod +x /sbin/init
 VOLUME [ "/sys/fs/cgroup" ]
 # docker run -it --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd systemd.unit=emergency.service
-ENTRYPOINT ["/lib/systemd/systemd"]
+ENTRYPOINT ["/sbin/init"]
 CMD ["systemd.unit=emergency.service"]
