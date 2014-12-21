@@ -22,9 +22,10 @@ rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*; \
 rm -f /lib/systemd/system/plymouth*; \
-rm -f /lib/systemd/system/systemd-update-utmp*; \
-rm -f /lib/systemd/system/graphical.target;
-rm -f /lib/systemd/system/default.target
+rm -f /lib/systemd/system/systemd-update-utmp*;
+# rm -f /lib/systemd/system/graphical.target;
+# rm -f /lib/systemd/system/default.target
+RUN systemctl set-default multi-user.target
 ENV init /lib/systemd/systemd
 VOLUME [ "/sys/fs/cgroup" ]
 # docker run -it --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd systemd.unit=emergency.service
