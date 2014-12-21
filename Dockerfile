@@ -31,5 +31,5 @@ COPY init /sbin/init
 RUN chmod +x /sbin/init
 VOLUME [ "/sys/fs/cgroup" ]
 # docker run -it --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd systemd.unit=emergency.service
-ENTRYPOINT ["/sbin/init"]
-CMD ["systemd.unit=emergency.service"]
+CMD ["/sbin/init"]
+#CMD ["systemd.unit=emergency.service"]
