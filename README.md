@@ -5,6 +5,8 @@ This is a Ubuntu 15.04 Baseimage Running SystemD Init System inside a container 
 
 # Starting a shell with systemd
 
+Importent Additional infos for windows user plz add CAP_AUDIT_READ behind SYS_ADMIN its a bug related to windows probally
+
          $ docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd   systemd.unit=emergency.service
          
          systemd 218 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT -GNUTLS +ACL +XZ -LZ4 -SECCOMP +BLKID -ELFUTILS +KMOD -IDN)
