@@ -1,6 +1,6 @@
-# ubuntu-docker-systemd
+# ubuntu-systemd
 
-Based on [docker-systemd](https://github.com/dockerimages/docker-systemd), this is Ubuntu running systemd init system inside a container.
+Based on [docker-systemd](https://github.com/dockerimages/docker-systemd), this is Docker image with Ubuntu running systemd init system inside a container.
 
 ## Available tags
 
@@ -11,7 +11,7 @@ Based on [docker-systemd](https://github.com/dockerimages/docker-systemd), this 
 ## Starting a shell with systemd
 
 ```
-docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro kxes/ubuntu-docker-systemd systemd.unit=emergency.service
+docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro kxes/ubuntu-systemd systemd.unit=emergency.service
 ```
 
 You need CAP_SYS_ADMIN capability (as in the example above `--caps-add SYS_ADMIN`) or you can just add `--privileged`.
