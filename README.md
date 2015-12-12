@@ -1,4 +1,4 @@
-# [kxes/ubuntu-systemd](https://hub.docker.com/r/kxes/ubuntu-systemd/)
+# Systemd ubuntu for upstream to the docker hub _/ubuntu/1x.xx-systemd
 
 Based on [docker-systemd](https://github.com/dockerimages/docker-systemd), this is Docker image with Ubuntu running systemd init system inside a container.
 
