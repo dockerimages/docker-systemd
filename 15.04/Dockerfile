@@ -12,7 +12,7 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt vivid main restricted univ
 deb mirror://mirrors.ubuntu.com/mirrors.txt vivid-updates main restricted universe multiverse \n\
 deb mirror://mirrors.ubuntu.com/mirrors.txt vivid-backports main restricted universe multiverse \n\
 deb mirror://mirrors.ubuntu.com/mirrors.txt vivid-security main restricted universe multiverse" > /etc/apt/sources.d/ubuntu-mirrors.list
-RUN apt-get update && apt-get install systemd
+RUN apt-get update && apt-get install systemd && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN cd /lib/systemd/system/sysinit.target.wants/; ls | grep -v systemd-tmpfiles-setup | xargs rm -f $1 \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
 rm -f /etc/systemd/system/*.wants/*;\
@@ -28,4 +28,3 @@ ENV init /lib/systemd/systemd
 VOLUME [ "/sys/fs/cgroup" ]
 # docker run -it --privileged=true -v /sys/fs/cgroup:/sys/fs/cgroup:ro 444c127c995b /lib/systemd/systemd systemd.unit=emergency.service
 ENTRYPOINT ["/lib/systemd/systemd"]
-CMD ["systemd.unit=emergency.service"]
