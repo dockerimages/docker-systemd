@@ -11,7 +11,7 @@ Based on [docker-systemd](https://github.com/dockerimages/docker-systemd), this 
 ## Starting a shell with systemd
 
 ```
-docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro kxes/ubuntu-systemd systemd.unit=emergency.service
+docker run -it --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro dockerimages/systemd:15.04 systemd.unit=emergency.service
 ```
 
 You need CAP_SYS_ADMIN capability (as in the example above `--caps-add SYS_ADMIN`) or you can just add `--privileged`.
